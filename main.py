@@ -58,12 +58,12 @@ text_rect.center = (50, 12)
 
 while run:
     # Setup Game functions and systems
-    pygame.time.delay(25)
+    pygame.time.delay(15)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
     if Food.food_count < 1:
-        random_pos = (random.randint(0, screen_width - Food.size[0]), random.randint(0, screen_height - Food.size[1]))
+        random_pos = (random.randint(0, screen_width - Food.size[0] * 3), random.randint(0, screen_height - Food.size[1] * 3))
         food = Food(random_pos)
 
     # Function to add to the snake based on the direction the snake is facing
@@ -163,7 +163,7 @@ while run:
     if snake_head_mask.colliderect(food_mask):
         score += 1
         text = font.render(f'Score: {score}', True, (255, 255, 255), (0, 0, 0))
-        random_pos = (random.randint(0, screen_width - Food.size[0]), random.randint(0, screen_height - Food.size[1]))
+        random_pos = (random.randint(0, screen_width - Food.size[0] * 3), random.randint(0, screen_height - Food.size[1] * 3))
         food = Food(random_pos)
         add_snake()
 
